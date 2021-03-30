@@ -1,13 +1,24 @@
 <template>
   <div>
-    {{ fo }}
+    <with-complex-props :data="complex" />
   </div>
 </template>
 
-<script>
-import * as _ from 'lodash'
+<script lang="ts">
+import Vue from 'vue'
 
-export default {
-  props: ['foo', 'bar']
-}
+import WithComplexProps from './WithComplexProps.vue'
+
+export default Vue.extend({
+  components: {
+    WithComplexProps
+  },
+  data () {
+    return {
+      complex: {
+        value: 'hello'
+      }
+    }
+  }
+})
 </script>
